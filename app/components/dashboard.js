@@ -9,6 +9,7 @@ var
   } = React,
   Profile = require('./profile'),
   Repos = require('./repos'),
+  Notes = require('./notes'),
   styles,
   Dashboard;
 
@@ -61,7 +62,11 @@ Dashboard = React.createClass({
   },
 
   goToNotes: function () {
-
+    this.props.navigator.push({
+      title: 'Notes',
+      component: Notes,
+      passProps: { user: this.props.userInfo }
+    });
   },
 
   render: function () {

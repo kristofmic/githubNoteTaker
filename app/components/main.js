@@ -66,6 +66,11 @@ Main = React.createClass({
     };
   },
 
+  shouldComponentUpdate: function (nextProps, nextState) {
+    return this.state.error !== nextState.error ||
+           this.state.isLoading !== nextState.isLoading;
+  },
+
   handleChange: function (text) {
     this.setState({
       username: text
